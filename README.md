@@ -1,4 +1,5 @@
-Summary
+**Summary**
+
 Dataset: Spam email classification dataset.
 Preprocessing:
 Renamed columns.
