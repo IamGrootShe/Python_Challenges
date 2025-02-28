@@ -1,0 +1,36 @@
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        left, right = 0 , len(height) -1
+        left_max = height[0]
+        right_max = height[right]
+        trapped_water = 0
+
+        while left < right:
+            if height[left] < height[right]:
+                if left_max < height[left]:
+                    left_max = height[left]
+                else:
+                    trapped_water += left_max - height[left]
+                left += 1
+            else:
+                if right_max < height[right]:
+                    right_max = height[right]
+                else:
+                    trapped_water += right_max - height[right]
+                right -= 1
+        return trapped_water
+        #Algorithm
+#Use two pointers, left and right, starting at the leftmost and rightmost bars.
+#Maintain two variables:
+#left_max: Highest bar on the left.
+#right_max: Highest bar on the right.
+#Move the pointer that has the smaller height:
+#If height[left] < height[right], process the left pointer:
+#If height[left] is greater than left_max, update left_max.
+#Else, water trapped at left is left_max - height[left].
+#Move left to the right (left += 1).
+#Else, process the right pointer:
+#If height[right] is greater than right_max, update right_max.
+#Else, water trapped at right is right_max - height[right].
+#Move right to the left (right -= 1).
+#Continue until left and right meet.
