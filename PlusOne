@@ -1,0 +1,19 @@
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        n = len(digits)
+        for i in range(n-1,-1,-1):
+            if digits[i] < 9:
+                digits[i]+= 1
+                return digits
+            else:
+                digits[i]=0
+        return [1] + digits
+
+
+# Approach
+# Start from the last digit (least significant).
+# Increment the digit:
+# If the digit is less than 9, simply add 1 and return the array.
+# If the digit is 9, it becomes 0, and the carry moves to the left.
+# Repeat the process for all digits.
+#     If there is a carry left at the end, insert 1 at the beginning.
