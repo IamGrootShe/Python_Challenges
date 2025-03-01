@@ -1,0 +1,26 @@
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+
+        i = 0 
+        
+        for j in range(1,len(nums)):
+            if nums[i] != nums[j]:
+                i+=1
+                nums[i] = nums[j]
+
+        return i+1
+
+
+# Algorithm
+# Use a slow pointer (i) to track the position where the next unique element should be placed.
+# Use a fast pointer (j) to iterate through the array and find unique elements.
+# If nums[j] ≠ nums[i]:
+# Move i forward.
+# Copy nums[j] to nums[i].
+# Continue until j reaches the end of the array.
+# The nu
+
+
+        
